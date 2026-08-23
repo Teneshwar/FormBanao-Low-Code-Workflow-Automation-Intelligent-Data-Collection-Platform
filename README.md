@@ -155,7 +155,12 @@ Open the dev URL printed by Vite (typically http://localhost:5173).
 6. Share the public URL or QR code with respondents.
 7. View submissions, export CSVs, and analyze data using the Analytics dashboard.
 
-Screenshots and GIFs are helpful; place them in `frontend/assets/` and reference in README if needed.
+<img width="1912" height="866" alt="Screenshot 2026-08-10 124327" src="https://github.com/user-attachments/assets/cea73f2e-b88e-4ffb-b38e-ea3fcdd5dda0" />
+<img width="1896" height="865" alt="Screenshot 2026-08-10 124529" src="https://github.com/user-attachments/assets/3c0f243c-98db-4c7e-b7a6-43b8857a0fee" />
+<img width="1917" height="872" alt="Screenshot 2026-08-10 125336" src="https://github.com/user-attachments/assets/8168d654-8225-472a-92e2-6831ae3dec3a" />
+
+
+
 
 ---
 
@@ -237,44 +242,6 @@ Create a `.env` in the project root (copy `.env.example`) and set the following 
 
 ---
 
-## 📦 Deployment
-
-Basic steps for deployment:
-
-1. Provision managed PostgreSQL and Redis (if using Celery).
-2. Build frontend and serve static files via CDN or a web server:
-
-```powershell
-cd frontend
-npm run build
-# serve dist/ via Nginx, Vercel, Netlify, or static host
-```
-
-3. Deploy backend with Gunicorn/Uvicorn workers (or containerize):
-
-- Dockerfile (example)
-- Use process manager (systemd) or container orchestrator (Docker Compose, Kubernetes)
-- Ensure `.env` values are provided via secret stores or environment settings in your platform
-
-Example Docker & Compose steps can be added later if required.
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome. Typical flow:
-
-1. Fork the repository
-2. Create a branch: `git checkout -b feature/your-feature`
-3. Make changes and add tests
-4. Commit: `git commit -m "Add feature X"`
-5. Push: `git push origin feature/your-feature`
-6. Open a pull request with a clear description
-
-Please follow repository conventions and add documentation for new public APIs.
-
----
-
 ## 🐛 Known Issues & Limitations
 
 - No formal test suite included by default
@@ -295,11 +262,6 @@ Planned enhancements:
 - SSO (SAML / OIDC) and enterprise security features
 - Improved analytics (funnel/drop-off analysis, segmentation)
 
----
-
-## 📄 License
-
-This repository does not declare a license file by default. Add a LICENSE file (e.g., MIT) if you plan to open-source the project.
 
 ---
 
@@ -307,23 +269,7 @@ This repository does not declare a license file by default. Add a LICENSE file (
 
 **Project Maintainer**
 
-- GitHub: `Teneshwar` (or replace with your GitHub handle)
-- Email: `<your-email@example.com>`
+- GitHub: `Teneshwar`
+- Email: `<teneshwardwivedi22102003@gmail.com>`
 
-(Replace with correct contact details before publishing.)
 
----
-
-## 🙏 Acknowledgements
-
-Thanks to the open-source libraries and projects used in this project (FastAPI, React, Tailwind, SQLAlchemy, etc.).
-
----
-
-## 📞 Support
-
-Report issues or feature requests using the repository Issues tab. For urgent bugs, open an issue with the label `bug` and include reproduction steps and logs.
-
----
-
-If you'd like, this README can replace the existing top-level README.md or be adjusted for a shorter public README; tell me which you prefer and I can either overwrite or update the original README.md accordingly.
