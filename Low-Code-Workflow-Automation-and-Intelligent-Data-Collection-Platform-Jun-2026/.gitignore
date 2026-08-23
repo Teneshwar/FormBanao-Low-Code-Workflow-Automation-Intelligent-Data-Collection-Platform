@@ -1,0 +1,4 @@
+# Environment variables - never commit real credentials
+__pycache__/
+*.pyc
+.env

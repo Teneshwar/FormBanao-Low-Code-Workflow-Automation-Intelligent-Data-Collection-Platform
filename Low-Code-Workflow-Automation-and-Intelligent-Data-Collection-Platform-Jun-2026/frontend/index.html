@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Form Banao is a modern form builder for creating, publishing, sharing, and analyzing smart forms with AI-assisted workflows, multilingual support, and beautiful analytics." />
+    <meta name="theme-color" content="#2563eb" />
+    <title>Form Banao | Create Smart Forms</title>
+    <!-- PWA: capture beforeinstallprompt early so the React app doesn't miss it -->
+    <script>
+      (function(){
+        window.addEventListener('beforeinstallprompt', function(e){
+          e.preventDefault();
+          window.deferredPrompt = e;
+          try{ window.dispatchEvent(new Event('pwa-beforeinstallprompt')); } catch(e){}
+          console.debug('[PWA] beforeinstallprompt captured in inline script')
+        });
+
+        // Register service worker as early as possible (don't wait for window.load)
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/sw.js', { scope: '/' })
+            .then(reg => {
+              console.debug('[PWA] sw registered early', reg)
+              try {
+                // Ensure the service worker controls the page: if it's not controlling yet, wait for activation and reload once.
+                if (!navigator.serviceWorker.controller && !sessionStorage.getItem('pwa_reloaded')) {
+                  navigator.serviceWorker.ready.then(() => {
+                    console.debug('[PWA] service worker ready, reloading to claim clients')
+                    sessionStorage.setItem('pwa_reloaded', '1')
+                    location.reload()
+                  })
+                }
+              } catch (e) {
+                console.debug('[PWA] sw reload logic failed', e)
+              }
+            })
+            .catch(err => console.debug('[PWA] sw registration failed', err))
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
